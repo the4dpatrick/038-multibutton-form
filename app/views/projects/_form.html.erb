@@ -11,6 +11,12 @@
     </div>
   <% end %>
 
+  <% if params[:preview_button] %>
+    <div id="preview">
+      <h2><%= @project.name %></h2>
+      <%= textilize @project.description %>
+    </div>
+  <% end %>
   <div class="field">
     <%= f.label :name %><br>
     <%= f.text_field :name %>
@@ -20,6 +26,7 @@
     <%= f.text_field :description %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= submit_tag 'Create'%>
+    <%= submit_tag 'Preview', name: 'preview_button' %>
   </div>
 <% end %>
